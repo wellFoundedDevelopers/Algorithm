@@ -1,4 +1,7 @@
 /*
+<문제>
+https://www.acmicpc.net/problem/5555
+
 <구현 방법>
 연속적으로 같은 개수를 찾아 개수가 찾고자하는 String과 길이가 같으면 true를 반환하게 함.
 

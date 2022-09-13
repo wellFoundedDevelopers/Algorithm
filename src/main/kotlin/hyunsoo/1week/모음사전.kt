@@ -21,7 +21,7 @@ package hyunsoo.`1week`
 
 */
 
-class Solution {
+class `모음사전_hyunsoo` {
 
     fun solution(word: String) = search(converter(word))
 
@@ -73,7 +73,7 @@ class Solution {
 }
 
 fun main() {
-    val test = Solution()
+    val test = 모음사전_hyunsoo()
 
     test.solution("AAAAE").apply{println(this)}
     test.solution("AAAE").apply { println(this) }

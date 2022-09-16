@@ -1,7 +1,7 @@
 package byeonghee.`1week`
 
 /** 백준 제출 코드 START*/
-fun mainForSubmit() {
+fun mainForSubmit_5555() {
     val keyword = readln().toRegex()
     val ringN = readln().toInt()
     var count = 0

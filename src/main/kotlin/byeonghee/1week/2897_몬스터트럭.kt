@@ -8,9 +8,9 @@ val dr = arrayOf(0, 1, 0, 1)
 val dc = arrayOf(0, 0, 1, 1)
 
 fun mainForSubmit_2897() {
-    readln().split(" ").map{ it.toInt() }.apply{
-        R = first()
-        C = last()
+    readln().split(" ").apply{
+        R = first().toInt()
+        C = last().toInt()
     }
 
     val parkingMap = arrayListOf<String>()

@@ -2,7 +2,7 @@ package byeonghee.`1week`
 
 import kotlin.math.*
 
-class Solution_byeonghee {
+class Solution_Dictionary_byeonghee {
     val priority = "AEIOU"
     val base = 5F
 
@@ -20,7 +20,7 @@ class Solution_byeonghee {
 }
 
 fun main() {
-    val sol = Solution_byeonghee()
+    val sol = Solution_Dictionary_byeonghee()
 
     val words = arrayOf("AAAAE", "AAAE", "I", "EIO")
     val answers = arrayOf(6, 10, 1563, 1189)

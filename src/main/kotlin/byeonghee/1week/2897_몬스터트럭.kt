@@ -56,7 +56,7 @@ fun main() {
     for(i in tc.indices) {
         println("TEST CASE ${i+1}")
         println("출력:")
-        test(tc[i])
+        test_2897(tc[i])
         println("정답:")
         println(ans[i].joinToString("\n"))
         println()

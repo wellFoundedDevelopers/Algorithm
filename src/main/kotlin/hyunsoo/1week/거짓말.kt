@@ -34,10 +34,9 @@ fun main() {
     val (n, m) = readln().split(" ").map { it.toInt() }
 
     val partyInfoList = mutableListOf<List<Int>>()
-    val knowTruthList = mutableSetOf<Int>()
     val knowTruth = readln()
     var canLieCnt = 0
-    var peopleParentList = (0..n + 1).toMutableList()
+    val peopleParentList = (0..n + 1).toMutableList()
 
     // 진실을 아는 사람이 없을 경우
     if (knowTruth == "0") {
@@ -64,10 +63,10 @@ fun main() {
     partyInfoList.forEach { partyInfo ->
         var canLie = true
 
-        partyInfo.forEach {
+        partyInfo.forEach party@{
             if (findParent(peopleParentList, it) == 0) {
                 canLie = false
-                return@forEach
+                return@party
             }
         }
 

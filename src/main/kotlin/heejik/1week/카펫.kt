@@ -1,8 +1,8 @@
-package heejik
+package heejik.`1week`
 
 import java.lang.Integer.max
 
-class 카펫_장희직 {
+class 카펫 {
 
     fun solution(brown: Int, yellow: Int): IntArray {
         val limit = max(brown,yellow)
@@ -19,5 +19,5 @@ class 카펫_장희직 {
 }
 
 fun main() {
-    println(카펫_장희직().solution(10,2)[0])
+    println(카펫().solution(10,2)[0])
 }

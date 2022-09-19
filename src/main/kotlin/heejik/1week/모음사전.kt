@@ -1,6 +1,6 @@
-package heejik
+package heejik.`1week`
 
-class 모음사전_장희직 {
+class 모음사전 {
 
     fun solution(word: String): Int {
         val vowel = arrayListOf<String>("A", "E", "I", "O", "U")
@@ -22,5 +22,5 @@ class 모음사전_장희직 {
 }
 
 fun main() {
-    모음사전_장희직().solution("AAA")
+    모음사전().solution("AAA")
 }

@@ -1,13 +1,17 @@
 package jimin.`2week`
 
-// . 지뢰 x
-// * 지뢰o
-// 이미 열린칸 x 안열린거 .
-// 지뢰x && 열림 -> 0~8 숫자
-// 지뢰o && 열림 -> 지뢰가 있는 모든 칸 *
-// 다른지점은 .
+/*
+<문제>
+https://www.acmicpc.net/problem/4396
 
-//문자열로 넣으면 안됨.
+<구현 방법>
+지뢰의 정보를 담는 landMineList를 만들어 지뢰를 열었을 경우 clickLandMine을 true로 주어
+지뢰를 나타내도록 하였다.
+지뢰가 주변에 몇개있는지는 forEachIndexed를 돌면서 열었을 경우에만 탐색하도록 하였다.
+
+<트러블 슈팅>
+
+ */
 fun main() {
     val N = readln().toInt()
     val landMineInfoList = arrayListOf<List<String>>()
@@ -28,7 +32,6 @@ fun makeResult(landMineInfoList: ArrayList<List<String>>, playerResultInfoList: 
         resultList.add(".".repeat(landMineInfoList.size).chunked(1).toMutableList())
     }
     var clickLandMine = false
-
     playerResultInfoList.forEachIndexed { i, row ->
         row.forEachIndexed { j, column ->
             when (column) {

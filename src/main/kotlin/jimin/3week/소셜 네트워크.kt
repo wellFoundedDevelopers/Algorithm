@@ -20,11 +20,10 @@ fun main() : Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
     }
 
     var day = 0
-    var new = 0
     var newRelationship = arrayListOf<Int>()
     while (friends.filterValues { it.size == n - 1 }.size < m) {
         friends.forEach { (key, value) ->
-            if (value.size == n) return@forEach
+            if (value.size == n - 1) return@forEach
             value.forEach { num ->
                 cloneFriends[key]?.addAll(ArrayList(friends[num]))
                 cloneFriends[key]?.remove(key)
@@ -32,15 +31,14 @@ fun main() : Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
         }
         //println(friends)
         //println(cloneFriends)
+        newRelationship.add(0)
         cloneFriends.forEach { (key, value) ->
-            new += value.filter { friends[key]?.contains(it) == false }.size
+            newRelationship[newRelationship.size - 1] += value.filter { friends[key]?.contains(it) == false }.size
             //println("차이 ${value.filter { friends[key]?.contains(it) == false }}")
             friends[key]?.addAll(value)
         }
-        //println(new)
         day += 1
-        newRelationship.add(new / 2)
-        new = 0
+        newRelationship[newRelationship.size - 1] = newRelationship[newRelationship.size - 1]/2
     }
     println(day)
     newRelationship.forEach {

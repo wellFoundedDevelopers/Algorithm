@@ -8,6 +8,7 @@ val dc = listOf(-1, 0, 1, -1, 1, -1, 0, 1)
 
 val mineMap = mutableListOf<String>()
 val curMap = mutableListOf<MutableList<Char>>()
+val mineList = mutableListOf<Pair<Int, Int>>()
 
 fun getSwipeNum(r : Int, c: Int) : Char {
     var bombN = 0
@@ -19,7 +20,6 @@ fun getSwipeNum(r : Int, c: Int) : Char {
     return bombN.digitToChar()
 }
 
-// 틀림!!
 fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
     val n = readLine().trim().toInt()
 
@@ -33,23 +33,24 @@ fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
         curMap.add(readLine().trim().toMutableList())
     }
 
-    mineMap.forEach {
-        println(it)
-    }
-
     var bomb = false
     for(i in 1..n) for (j in 1..n) {
         if (curMap[i-1][j-1] == 'x') {
             if (mineMap[i][j] == '*') {
                 bomb = true
-                curMap[i-1][j-1] = '*'
             }
             else {
                 curMap[i-1][j-1] = getSwipeNum(i, j)
             }
         }
-        if (bomb && mineMap[i][j] == '*') {
-            curMap[i-1][j-1] = '*'
+        if (mineMap[i][j] == '*') {
+            mineList.add(Pair(i-1, j-1))
+        }
+    }
+
+    if (bomb) {
+        mineList.forEach {
+            curMap[it.first][it.second] = '*'
         }
     }
 

@@ -3,15 +3,15 @@ package jimin.`3week`
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
-fun main() : Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
+fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
     val (n, m) = readLine().split(" ").map { it.toInt() }
     val friends = mutableMapOf<Int, MutableSet<Int>>()
     val cloneFriends = mutableMapOf<Int, MutableSet<Int>>()
-    for (i in 1 .. n){
+    for (i in 1..n) {
         friends[i] = mutableSetOf()
         cloneFriends[i] = mutableSetOf()
     }
-    for (i in 0 until m){
+    for (i in 0 until m) {
         val (a, b) = readLine().split(" ").map { it.toInt() }
         friends[a]?.add(b)
         friends[b]?.add(a)
@@ -38,7 +38,7 @@ fun main() : Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
             friends[key]?.addAll(value)
         }
         day += 1
-        newRelationship[newRelationship.size - 1] = newRelationship[newRelationship.size - 1]/2
+        newRelationship[newRelationship.size - 1] = newRelationship[newRelationship.size - 1] / 2
     }
     println(day)
     newRelationship.forEach {

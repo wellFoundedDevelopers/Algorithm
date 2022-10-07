@@ -50,7 +50,7 @@ fun dfs(i: Int, j: Int) {
     )
     banner[i][j] = 0
     for ((x, y) in direction) {
-        if (i + x < n && i + x >= 0 && j + y < m && j + y >= 0) {
+        if (i + x in 0 until n && j + y < m && j + y >= 0) {
             if (banner[i + x][j + y] == 1) {
                 dfs(i + x, j + y)
             }

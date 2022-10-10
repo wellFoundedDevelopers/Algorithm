@@ -1,6 +1,8 @@
 package hyunsoo.`4week`
 
 /**
+ *  <문제>
+ *  [NBA 농구](https://www.acmicpc.net/problem/2852)
  * 동혁이는 NBA 농구 경기를 즐겨봄
  * 골이 들어갈 때 마다 골이 들어간 시간과 팀을 적는 취미가 있음
  * 농구는 48분동안 진행되고, 각 팀이 몇 분동안 이기고 있었는지 출력

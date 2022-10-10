@@ -1,6 +1,10 @@
 package hyunsoo.`4week`
 
 /**
+ *
+ * <문제>
+ * [보물](https://www.acmicpc.net/problem/1026)
+ *
  * 길이가 n인 정수 배열 a, b가 있는데
  * 함수 s = a[0] * b[0] + .. a[n-1] * b[n-1] 임
  * s의 값을 가장 자게 만들기 위하여 a의 수를 재배열 하자..!

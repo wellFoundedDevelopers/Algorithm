@@ -1,6 +1,10 @@
 package hyunsoo.`4week`
 
 /**
+ *
+ * <문제>
+ * [그림](https://www.acmicpc.net/problem/1926)
+ *
  * 이것도 DFS 문제!
  * 상하좌우를 탐색.
  * 연결되어있는 1의 개수를 합칠거야.

@@ -33,7 +33,7 @@ fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
         var sortedPlayerInfo = playerInfo.toList().sortedBy { it.second }.reversed()
         val secondPlayer = sortedPlayerInfo.filter { sortedPlayerInfo[0].second > it.second }
         var secondPlayerList = sortedPlayerInfo.filter { it.second == secondPlayer[0].second }
-        if (!secondPlayerList.isNullOrEmpty()){
+        if (secondPlayerList.isEmpty().not()){
             secondPlayerList = secondPlayerList.sortedBy { it.first }
             secondPlayerList.forEach { print("${it.first} ") }
         }

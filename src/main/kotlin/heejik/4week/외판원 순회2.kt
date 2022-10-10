@@ -15,11 +15,10 @@ fun main() {
         li.add(readln().split(' ').map { it.toInt() })
     }
 
-    li.forEachIndexed { x, _ ->
-        li[x].forEachIndexed { y, i ->
-            if (i != 0) {
-                solve(x, x, y, listOf(x, y), i)
-            }
+    // 0 에서만 시작지점
+    for (i in 1 until n){
+        if (li[0][i] != 0) {
+            solve(0, 0, i, listOf(0, i), li[0][i])
         }
     }
     println(min(score_li))

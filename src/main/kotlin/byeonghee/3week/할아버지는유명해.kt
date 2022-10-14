@@ -9,33 +9,47 @@ import java.io.InputStreamReader
  * 그리고 입력마다 최대값을 계산하면 시간복잡도가 N^2이니 아마 내부적으로 NlogN일 정렬을 이용하는 편이 더 나을 것 같다.
  */
 
-val br = BufferedReader(InputStreamReader(System.`in`))
+class `소병희_할아버지는유명해` {
+    companion object {
+        fun getSolution(): Solution {
+            return Solution()
+        }
+    }
 
-var N = 0
-var silver = 0
-var accRanking = IntArray(10001){ 0 }
+    class Solution {
+        val br = BufferedReader(InputStreamReader(System.`in`))
+
+        var N = 0
+        var silver = 0
+        var accRanking = IntArray(10001){ 0 }
+
+        fun solution() {
+
+            while(true) {
+                N = br.readLine().trim().split(" ").first().toInt()
+                if (N == 0) break
+
+                repeat(N) {
+                    br.readLine().trim().split(" ").forEach { p ->
+                        accRanking[p.toInt()]++
+                    }
+                }
+
+                silver = accRanking.toSortedSet().reversed().drop(1).first()
+
+                for(i in 1..10000) {
+                    if (accRanking[i] == silver) {
+                        print("$i ")
+                    }
+                }
+                println()
+
+                accRanking = IntArray(10001){ 0 }
+            }
+        }
+    }
+}
 
 fun main() {
-
-    while(true) {
-        N = br.readLine().trim().split(" ").first().toInt()
-        if (N == 0) break
-
-        repeat(N) {
-            br.readLine().trim().split(" ").forEach { p ->
-                accRanking[p.toInt()]++
-            }
-        }
-
-        silver = accRanking.toSortedSet().reversed().drop(1).first()
-
-        for(i in 1..10000) {
-            if (accRanking[i] == silver) {
-                print("$i ")
-            }
-        }
-        println()
-
-        accRanking = IntArray(10001){ 0 }
-    }
+    `소병희_할아버지는유명해`.getSolution()
 }

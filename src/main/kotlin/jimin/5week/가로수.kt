@@ -6,7 +6,7 @@ import kotlin.math.min
 
 /*
 <문제>
-[가로수] https://www.acmicpc.net/problem/2485
+[가로수] (https://www.acmicpc.net/problem/2485)
 
 <구현 방법>
 가로수들의 간격을 구하고, 그 간격의 최솟값부터 1까지 downTo로 for문을 돌았다.

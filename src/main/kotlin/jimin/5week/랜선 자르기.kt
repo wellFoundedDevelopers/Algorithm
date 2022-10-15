@@ -5,7 +5,7 @@ import java.io.InputStreamReader
 
 /*
 <문제>
-[랜선 자르기] https://www.acmicpc.net/problem/1654
+[랜선 자르기] (https://www.acmicpc.net/problem/1654)
 
 <구현 방법>
 최솟값을 1로, 최댓값을 랜선의 최대로 하여 이분 탐색을 진행하였다.

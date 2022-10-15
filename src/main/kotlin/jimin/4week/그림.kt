@@ -32,6 +32,7 @@ fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
             if (pictureList[i][j] == 1){
                 dfs(pictureList, i, j)
                 pictureNumber += 1
+                //여기에 maxNum = max(maxNum, area) 갱신
                 area = 0
             }
         }

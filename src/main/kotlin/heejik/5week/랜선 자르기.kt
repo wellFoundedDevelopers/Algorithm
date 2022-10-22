@@ -2,7 +2,7 @@ package heejik.`5week`
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import kotlin.system.exitProcess
+
 
 val lines = mutableListOf<Long>()
 
@@ -17,16 +17,11 @@ fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
         s += line
     }
 
-    var start = 0L
+    var start = 1L
     var end = s / n
-    if (end == 1L) {
-        println(1)
-        exitProcess(0)
-    }
     while (start <= end) {
         val mid = (end + start) / 2
-        val cnt = isCorrect(mid)
-        if (cnt >= n) {
+        if (lines.sumOf { it/mid } >= n){
             answer = mid
             start = mid + 1
         } else {
@@ -35,12 +30,4 @@ fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
     }
 
     println(answer)
-}
-
-fun isCorrect(length: Long): Long {
-    var cnt = 0L
-    lines.forEach {
-        cnt += it / length
-    }
-    return cnt
 }

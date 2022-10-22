@@ -32,7 +32,7 @@ fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
     }
 
     for (i in 0 until num) {
-        //println("<$i>")
+        println("<$i>")
         pickNum(checkList.toMutableList(), i, 0, i)
     }
 
@@ -41,6 +41,7 @@ fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
 }
 
 fun pickNum(checkList: MutableList<Boolean>, index: Int, price: Int, firstIndex: Int) {
+    println(checkList)
     checkList[index] = true
 
     checkList.forEachIndexed { idx, check ->

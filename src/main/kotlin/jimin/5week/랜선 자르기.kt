@@ -17,12 +17,12 @@ import java.io.InputStreamReader
 fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
     val (k, n) = readLine().split(" ").map { it.toInt() }
     val lanCableList = arrayListOf<Long>()
-    repeat(k){
+    repeat(k) {
         lanCableList.add(readLine().toLong())
     }
 
     var min = 1L
-    var max = lanCableList.sorted().last()
+    var max = lanCableList.maxOf { it }
     while (true) {
         if (min > max) {
             println(max)

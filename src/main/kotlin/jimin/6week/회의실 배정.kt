@@ -5,7 +5,7 @@ import java.io.InputStreamReader
 
 /*
 <문제>
-[근손실] (https://www.acmicpc.net/problem/18429)
+[회의실 배정] (https://www.acmicpc.net/problem/1931)
 
 <구현 방법>
 meetingList를 회의시작시간, 회의종료시간 기준으로 정렬하였다.

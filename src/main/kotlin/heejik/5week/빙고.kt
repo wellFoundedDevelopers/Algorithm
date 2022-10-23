@@ -6,7 +6,6 @@ val bingo = arrayListOf<MutableList<Int>>()
 
 fun main() {
     var cnt = 0
-    var bingoCnt = 0
     val chairMan = arrayListOf<MutableList<Int>>()
 
     repeat(5) {
@@ -26,7 +25,6 @@ fun main() {
                         println(cnt)
                         exitProcess(0)
                     }
-                    bingoCnt = 0
                 }
             }
         }

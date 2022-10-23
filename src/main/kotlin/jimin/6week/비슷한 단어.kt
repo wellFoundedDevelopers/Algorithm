@@ -2,119 +2,63 @@ package jimin.`6week`
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
+/*
+<문제>
+[비슷한 단어] (https://www.acmicpc.net/problem/2607)
+
+<구현 방법>
+알파벳 리스트를 만들어 알파벳이 몇개나 나왔는지 기록함.
+이를 기반으로 master와 비교대상의 차이가 2또는 1이면 count를 증가시킴.
+길이가 같으면 문자하나를 바꾸는 것이기 때문에 서로 다른 알파벳이 2개 있는 것이므로 차이가 2인 것이고,
+길이가 다르면 문자하나를 더해주거나 빼주는 것이기 때문에 알파벳이 1개가 차이난다.
+
+<트러블 슈팅>
+알파벳 리스트를 만드는 것을 참고함
+ */
 
 
 fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
     val n = readLine().toInt()
     val masterWord = readLine()
-    var num = 0
+    val masterAlphabetList = MutableList(26) { i -> 0 }
+    masterWord.forEach {
+        masterAlphabetList[it - 'A'] += 1
+    }
 
-    repeat(n - 1) {
+    val alphabetList = MutableList(n - 1) { MutableList(26) { i -> 0 } }
+    repeat(n - 1) { n ->
         val word = readLine()
-        if (checkSameFormat(makeWordCharMap(masterWord).toSortedMap(), makeWordCharMap(word).toSortedMap())) {
-            println("true")
-            num += 1
-        } else {
-            println("false")
+        word.forEach { w ->
+            alphabetList[n][w - 'A'] += 1
         }
     }
-    println(num)
+    //println("master $masterAlphabetList")
+    //println("alpha $alphabetList")
 
-}
-
-fun makeWordCharMap(word: String): MutableMap<Char, Int> {
-    val wordCharMap = mutableMapOf<Char, Int>()
-    word.forEach {
-        if (wordCharMap[it] == null) {
-            wordCharMap[it] = 1
-        } else {
-            wordCharMap[it] = (wordCharMap[it] ?: 0) + 1
-        }
-    }
-    return wordCharMap
-}
-
-fun checkSameFormat(masterWordMap: MutableMap<Char, Int>, newWordMap: MutableMap<Char, Int>): Boolean {
-    return if (masterWordMap == newWordMap) {
-        true
-    } else {
-        if (masterWordMap.keys == newWordMap.keys) { // 같은 종류 but 다른 개수
-            var diff = 0
-            masterWordMap.forEach { key, value ->
-                diff += if (value > (newWordMap[key] ?: 0)) value - (newWordMap[key] ?: 0)
-                else (newWordMap[key] ?: 0) - value
-            }
-            (diff == 1)
-        } else { // 다른 종류
-            val onlyInNew = newWordMap.keys.filter { it !in masterWordMap.keys }
-            val onlyInMaster = masterWordMap.keys.filter { it !in newWordMap.keys }
-            if (masterWordMap.values.sum() == newWordMap.values.sum()) { // 다른 종류 and 같은 길이 -> 하나 바꾸기
-                if (onlyInMaster.size == 1) { // ex. GOD, GGD : onlyInMaster = O / GOD, GOF : onlyInMaster = D
-                    val tempNewWordMap = newWordMap.toMutableMap()
-                    if (onlyInNew.size == 1) { // GOF
-                        tempNewWordMap.remove(onlyInNew.first())
-                        tempNewWordMap[onlyInMaster.first()] = 1
-                        (tempNewWordMap == masterWordMap)
-                    } else if (onlyInNew.isEmpty()) { //GGD
-                        newWordMap.forEach { key, value ->
-                            if (value - masterWordMap[key]!! != 0) {
-                                tempNewWordMap[key] = tempNewWordMap[key]!! - 1
-                                tempNewWordMap[onlyInMaster.first()] = 1
-                                (tempNewWordMap == masterWordMap)
-                            }
-                        }
-                    } else {
-                        false
-                    }
-                }
-            } else { // 다른 종류 and 다른 길이 -> 하나 추가 or 빼기
-
-
-                    if (tempNewWordMap[onlyInNew.first()] == 1) {
-                        tempNewWordMap.remove(onlyInNew.first())
-                    } else {
-                        tempNewWordMap[onlyInNew.first()] = (tempNewWordMap[onlyInNew.first()] ?: 1) - 1
-                    }
-                    tempNewWordMap[onlyInMaster.first()] = 1
-                    println("2 temp $tempNewWordMap, master $masterWordMap")
-                    (tempNewWordMap == masterWordMap)
-
-            }
-        }
-
-        if (onlyInNew.size == 1 && onlyInMaster.size == 1 && newWordMap[onlyInNew.first()] == 1) {
-            val tempNewWordMap = newWordMap.toMutableMap()
-            if (tempNewWordMap[onlyInNew.first()] == 1) {
-                tempNewWordMap.remove(onlyInNew.first())
+    var total = 0
+    repeat(n - 1) { idx ->
+        var num = 0
+        if (masterWord.length == alphabetList[idx].sum()) { // 같은 길이 -> 하나 바꾸기 (2개가 다름)
+            if (masterAlphabetList == alphabetList[idx]) {
+                total += 1
             } else {
-                tempNewWordMap[onlyInNew.first()] = (tempNewWordMap[onlyInNew.first()] ?: 1) - 1
-            }
-            tempNewWordMap[onlyInMaster.first()] = 1
-            (tempNewWordMap == masterWordMap)
-        } else if (onlyInNew.size == 1 && onlyInMaster.isEmpty()) {
-            val tempMasterWordMap = masterWordMap.toMutableMap()
-            tempMasterWordMap[onlyInNew.first()] = 1
-            (tempMasterWordMap == newWordMap)
-        } else if (onlyInMaster.size == 1 && onlyInNew.isEmpty()) {
-            val tempNewWordMap = newWordMap.toMutableMap()
-            if (newWordMap.size != masterWordMap.size) {
-                tempNewWordMap[onlyInMaster.first()] = 1
-                println("1 temp $tempNewWordMap, master $masterWordMap")
-                (tempNewWordMap == masterWordMap)
-            } else {
-                if (tempNewWordMap[onlyInNew.first()] == 1) {
-                    tempNewWordMap.remove(onlyInNew.first())
-                } else {
-                    tempNewWordMap[onlyInNew.first()] = (tempNewWordMap[onlyInNew.first()] ?: 1) - 1
+                masterAlphabetList.forEachIndexed { i, n ->
+                    if (n > alphabetList[idx][i]) num += n - alphabetList[idx][i]
+                    else num += alphabetList[idx][i] - n
                 }
-                tempNewWordMap[onlyInMaster.first()] = 1
-                println("2 temp $tempNewWordMap, master $masterWordMap")
-                (tempNewWordMap == masterWordMap)
+                if (num == 2) total += 1
             }
-
-        } else {
-            false
+        } else { // 다른 길이 -> 하나 더하거나 빼기 (1개가 다름)
+            masterAlphabetList.forEachIndexed { i, n ->
+                if (n > alphabetList[idx][i]) num += n - alphabetList[idx][i]
+                else num += alphabetList[idx][i] - n
+            }
+            if (num == 1) total += 1
         }
+
     }
+    println(total)
+
+
 }
-}
+

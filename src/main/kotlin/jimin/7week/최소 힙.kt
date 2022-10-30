@@ -3,7 +3,6 @@ package jimin.`7week`
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.util.PriorityQueue
-import kotlin.math.abs
 
 /*
 <문제>

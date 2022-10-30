@@ -56,7 +56,8 @@ fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
     val minSecond = possibleZone.minOf { it.second }
     if (minFirst < 0) {
         possibleZone = possibleZone.map { it.copy(first = it.first + minFirst * (-1)) } as MutableList<Pair<Int, Int>>
-    } else if (minSecond < 0) {
+    }
+    if (minSecond < 0) {
         possibleZone =
             possibleZone.map { it.copy(second = it.second + minSecond * (-1)) } as MutableList<Pair<Int, Int>>
     }

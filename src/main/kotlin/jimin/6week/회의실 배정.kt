@@ -26,9 +26,9 @@ fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
         meetingList.add(Pair(input[0], input[1]))
     }
 
-    meetingList.sortWith(compareBy({ it.first }, {it.second}))
+    meetingList.sortWith(compareBy({ it.first }, {it.second})) //compareByDescending //PriorityQueue도 써보기! 입력받은걸 정렬하려고 하면 더 빠르다고 한다.
+    //compareBy{}.thenBy{} 도 있다.
     meetingList.reverse()
-    println(meetingList)
 
     var max = meetingList[0].first
     var num = 1

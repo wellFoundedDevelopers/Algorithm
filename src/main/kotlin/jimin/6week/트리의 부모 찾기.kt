@@ -17,9 +17,10 @@ parent를 기록해야한다는 아이디어 참고함.
 fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
     val n = readLine().toInt()
     var treeList = mutableMapOf<Int, MutableList<Int>>()
+    //treeList.getOrPut()
     repeat(n - 1) {
         val input = readLine().split(" ").map { it.toInt() }
-        if (treeList[input[0]] == null) treeList[input[0]] = mutableListOf(input[1])
+        if (treeList[input[0]] == null) treeList[input[0]] = mutableListOf(input[1]) //getOrPut 쓰기! 없으면 넣어준다!
         else treeList[input[0]]!!.add(input[1])
         if (treeList[input[1]] == null) treeList[input[1]] = mutableListOf(input[0])
         else treeList[input[1]]!!.add(input[0])

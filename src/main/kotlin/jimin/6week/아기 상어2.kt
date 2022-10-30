@@ -45,7 +45,7 @@ fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
             if (sharkInfoList[x][y] == 1) {
                 val visited = mutableListOf<MutableList<Boolean>>()
                 repeat(n) {
-                    visited.add(MutableList(m) { i -> false })
+                    visited.add(MutableList(m) { false }) //fill도 된다!
                 }
                 bfs(sharkInfoList, x, y, visited)
             }

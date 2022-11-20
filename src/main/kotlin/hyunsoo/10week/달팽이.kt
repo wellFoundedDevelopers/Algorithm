@@ -1,5 +1,10 @@
 package hyunsoo.`10week`
 
+/**
+ * <문제>
+ * [달팽이](https://www.acmicpc.net/problem/1913)
+ */
+
 // 하 우 좌 상
 val dirList = listOf(
     Pair(1, 0),

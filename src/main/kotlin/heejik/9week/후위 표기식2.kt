@@ -6,14 +6,14 @@ class `후위 표기식2` {
 
     fun solve() {
         val n = readln().toInt()
-        var postfix = readln().chunked(1).toMutableList()
+        val postfix = readln().chunked(1).toMutableList()
 
         repeat(n) { cnt ->
             val num = readln()
-            postfix = postfix.map {
+            postfix.replaceAll {
                 if (it.contains('A' + cnt)) num
                 else it
-            }.toMutableList()
+            }
         }
 
         postfix.forEach {

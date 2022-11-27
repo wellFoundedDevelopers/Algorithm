@@ -38,30 +38,35 @@ class 달팽이 {
             y += dy[0]
             if (num == findPos) answer = Pair(x,y)
             snail[x][y] = num++
+
             for (i in 0 until tmp - 2) {    // 오른
                 x += dx[1]
                 y += dy[1]
                 if (num == findPos) answer = Pair(x,y)
                 snail[x][y] = num++
             }
+
             for (i in 0 until tmp - 1) {    // 아래
                 x += dx[2]
                 y += dy[2]
                 if (num == findPos) answer = Pair(x,y)
                 snail[x][y] = num++
             }
+
             for (i in 0 until tmp - 1) {    // 왼
                 x += dx[3]
                 y += dy[3]
                 if (num == findPos) answer = Pair(x,y)
                 snail[x][y] = num++
             }
+
             for (i in 0 until tmp - 1) {    // 위
                 x += dx[0]
                 y += dy[0]
                 if (num == findPos) answer = Pair(x,y)
                 snail[x][y] = num++
             }
+
             if (num -1 == n * n) {
                 break
             }

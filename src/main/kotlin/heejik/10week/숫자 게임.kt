@@ -30,7 +30,7 @@ class `숫자 게임` {
             getScore(cnt + 1, depth, i + 1, s + this[i], sumList)
         }
 
-        return sumList.map { it % 10 }.maxByOrNull { it % 10 }!!
+        return sumList.map { it % 10 }.maxOf { it }
     }
 }
 

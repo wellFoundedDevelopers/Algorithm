@@ -20,7 +20,7 @@ import kotlin.collections.LinkedHashMap
  */
 
 fun main(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
-    val name = readLine().chunked(1).toMutableList()
+    val name = readLine().chunked(1).toMutableList() //-> 여기서 정렬하기
     var nameMap = LinkedHashMap<String, Int>(50)
     name.forEach {
         nameMap[it] = (nameMap[it] ?: 0) + 1

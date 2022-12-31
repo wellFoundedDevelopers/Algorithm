@@ -5,6 +5,12 @@ import java.io.BufferedWriter
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 
+/**
+ * <문제>
+ *
+ * [배열 합치기](https://www.acmicpc.net/problem/11728)
+ */
+
 fun main() {
 
     val br = BufferedReader(InputStreamReader(System.`in`))

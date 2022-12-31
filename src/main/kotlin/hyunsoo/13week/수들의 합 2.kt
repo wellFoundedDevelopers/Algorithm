@@ -17,7 +17,7 @@ fun main() {
     var end = 0
     var count = 0
 
-    while(start != numCount || end != numCount) {
+    while(start <= numCount && end <= numCount) {
 
         val sumOfSubsequence = numList.subList(start, end).sum()
 
@@ -30,7 +30,6 @@ fun main() {
             start++
         }
 
-        if(start > numCount || end > numCount) break
     }
 
     println(count)

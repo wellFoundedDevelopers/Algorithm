@@ -10,8 +10,6 @@ class 안녕 {
     )
 
     fun solve() {
-        var hp = 100
-        var happy = 0
         val n = readln().toInt()
         val l = readln().split(' ').map { it.toInt() }
         val j = readln().split(' ').map { it.toInt() }

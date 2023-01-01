@@ -2,6 +2,10 @@ package heejik.`12week`
 
 class 트럭 {
 
+    data class Truck(
+        val weight: Int, var time: Int
+    )
+
     fun solve() {
         val (n, w, l) = readln().split(' ').map { it.toInt() }
         val trucks = readln().split(' ').map { it.toInt() }.toMutableList()
@@ -24,9 +28,6 @@ class 트럭 {
     }
 }
 
-data class Truck(
-    val weight: Int, var time: Int
-)
 
 fun main() {
     트럭().solve()

@@ -11,8 +11,6 @@ class `등수 구하기` {
         }
         val scores = readln().split(' ').map { it.toInt() }.toMutableList()
 
-        scores.sort()
-
         if (scores.count { it >= score } >= p) {
             println(-1)
         } else {

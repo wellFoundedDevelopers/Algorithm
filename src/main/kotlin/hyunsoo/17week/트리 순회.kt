@@ -3,7 +3,7 @@ package hyunsoo.`17week`
 /**
  *
  * <문제>
- * [이진 검색 트리](https://www.acmicpc.net/problem/5639)
+ * [트리 순회](https://www.acmicpc.net/problem/1991)
  *
  * - 아이디어
  *

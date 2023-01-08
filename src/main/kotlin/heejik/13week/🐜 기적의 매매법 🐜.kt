@@ -37,7 +37,7 @@ class `🐜 기적의 매매법 🐜` {
         var downCnt = 0
         var preStock = stocks.first()
 
-        stocks.drop(0).forEach {
+        stocks.forEach {
             if (it > preStock) {
                 upCnt++
                 downCnt = 0

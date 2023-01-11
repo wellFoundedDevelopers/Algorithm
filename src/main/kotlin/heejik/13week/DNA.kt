@@ -23,7 +23,7 @@ class DNA {
             var maxCnt = 0
             "ACGT".forEach { c -> maxCnt = max(maxCnt, dnaByIdx.count { c == it }) }
 
-            answerDna += dnaByIdx.filter { c -> maxCnt == dnaByIdx.count { c == it } }.min()
+            answerDna += dnaByIdx.filter { c -> maxCnt == dnaByIdx.count { c == it } }.minOf{ it }
             answerCnt += dnaByIdx.count { it != answerDna.last() }
         }
 

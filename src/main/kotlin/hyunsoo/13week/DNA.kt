@@ -32,7 +32,7 @@ fun main() {
 
         val mostFrequentAlphabet = alphabetMap
             .toSortedMap()
-            .maxBy { it.value }.key
+            .maxByOrNull { it.value }!!.key
 
         hammingDistance +=
             alphabetMap.filter { it.key != mostFrequentAlphabet }

@@ -1,4 +1,4 @@
-package heejik.`14week`
+package heejik.`17week`
 
 import kotlin.math.absoluteValue
 import kotlin.math.min
@@ -6,7 +6,7 @@ import kotlin.math.min
 class `링크와 스타트` {
 
     var n = 0
-    val s = mutableListOf<List<Int>>()
+    private val s = mutableListOf<List<Int>>()
     private lateinit var visited: MutableList<Boolean>
     var answer = Int.MAX_VALUE
     fun solve() {

@@ -2,7 +2,7 @@ package byeonghee.`18week`
 
 import java.io.*
 
-class 소병희_ {
+class 소병희_거짓말 {
 
     companion object {
         var answer = 0
@@ -42,5 +42,5 @@ class 소병희_ {
 }
 
 fun main() {
-    소병희_.solve()
+    소병희_거짓말.solve()
 }

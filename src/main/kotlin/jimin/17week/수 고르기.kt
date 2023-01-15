@@ -6,7 +6,7 @@ import java.lang.Integer.min
 
 /*
 <문제>
-[추월](https://www.acmicpc.net/problem/2230)
+[수 고르기](https://www.acmicpc.net/problem/2230)
 
 <구현 방법>
 repeat으로 전체 인덱스를 돌면서 해당 인덱스부터 끝까지의 새로운 list를 만들어

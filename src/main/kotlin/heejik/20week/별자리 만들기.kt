@@ -7,7 +7,6 @@ class `별자리 만들기` {
 
     var n by Delegates.notNull<Int>()
     private lateinit var stars: MutableList<Star>
-    private lateinit var parents: MutableList<Int>
     private val lines = mutableListOf<Line>()
     private var cost = 0F
 
@@ -24,17 +23,10 @@ class `별자리 만들기` {
     }
 
     data class Star(
-        val name: Int,
+        var root: Int,
         val x: Float,
         val y: Float,
-    ) {
-        var root by Delegates.notNull<Int>()
-
-        @JvmName("_setRoot")
-        fun setRoot(root: Int) {
-            this.root = root
-        }
-    }
+    )
 
     fun solve() {
         getInput()
@@ -45,13 +37,10 @@ class `별자리 만들기` {
 
     private fun getInput() {
         n = readln().toInt()
-        stars = MutableList(n) { Star(name = -1, x = -1F, y = -1F) }
-        parents = MutableList(n) { it }
+        stars = MutableList(n) { Star(root = -1, x = -1F, y = -1F) }
         repeat(n) { i ->
             val (x, y) = readln().split(' ').map { it.toFloat() }
-            stars[i] = Star(i, x, y).apply {
-                setRoot(i)
-            }
+            stars[i] = Star(i, x, y)
         }
     }
 

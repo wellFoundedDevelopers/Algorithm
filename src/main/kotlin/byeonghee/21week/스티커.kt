@@ -2,7 +2,7 @@ package byeonghee.`21week`
 
 import java.io.*
 
-class 소병희_ {
+class 소병희_스티커 {
 
     companion object {
         val dr = arrayOf(intArrayOf(0, 1, 0), intArrayOf(-1, 0, 0))
@@ -56,5 +56,5 @@ class 소병희_ {
 }
 
 fun main() {
-    소병희_.solve()
+    소병희_스티커.solve()
 }

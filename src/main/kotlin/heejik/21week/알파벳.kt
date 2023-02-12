@@ -9,7 +9,7 @@ class 알파벳 {
 
     var r by Delegates.notNull<Int>()
     var c by Delegates.notNull<Int>()
-    private val board = mutableListOf<MutableList<Char>>()
+    private val board = mutableListOf<CharArray>()
     private var answer = 0
     fun solve() {
         readln().split(' ').map { it.toInt() }.apply {
@@ -18,7 +18,7 @@ class 알파벳 {
         }
 
         repeat(r) {
-            board.add(readln().toCharArray().toMutableList())
+            board.add(readln().toCharArray())
         }
 
         dfs(0, 0, charArrayOf(board[0][0]), 1)

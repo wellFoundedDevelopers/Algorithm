@@ -38,8 +38,6 @@ class `스위치 켜고 끄기` {
         }
     }
 
-    private fun changeSwitch(state: Int) = (state - 1) * -1
-
     private fun playByWoman(switchNumber: Int) {
         var resultOffset = 0
         val times = min((switch.size - 1) - switchNumber, switchNumber - 1)
@@ -59,6 +57,8 @@ class `스위치 켜고 끄기` {
             switch[i] = changeSwitch(switch[i])
         }
     }
+
+    private fun changeSwitch(state: Int) = (state - 1) * -1
 }
 
 fun main() {

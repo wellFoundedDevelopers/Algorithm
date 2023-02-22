@@ -1,6 +1,6 @@
 class 소병희_행렬테두리회전하기 {
     fun solution(rows: Int, cols: Int, queries: Array<IntArray>): IntArray {
-        val matrix = Array(rows) { r -> IntArray(cols) { c -> r * rows + c + 1 }}
+        val matrix = Array(rows) { r -> IntArray(cols) { c -> r * cols + c + 1 }}
 
         val answer = mutableListOf<Int>()
 

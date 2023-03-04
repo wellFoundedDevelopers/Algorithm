@@ -61,7 +61,7 @@ class `전현수_감시` {
 
                         }
                         // 그외 나머지 1~4번 CCTV라면 cctvData에 추가
-                        "1", "2", "3", "4" -> {
+                        in CCTV_KIND_LIST.filter { it != ALL_SIDES_CCTV } -> {
                             cctvDataList.add(
                                 CctvData(
                                     curBoardInfo,
@@ -199,6 +199,7 @@ class `전현수_감시` {
         private const val EMPTY = "0"
         private const val WALL = "6"
         private const val ALL_SIDES_CCTV = "5"
+        private val CCTV_KIND_LIST = listOf("1", "2", "3", "4", "5")
     }
 
     private fun detect(newBoard: MutableList<MutableList<String>>, startPosition: Position, dir: Position) {
@@ -217,12 +218,8 @@ class `전현수_감시` {
                 || newBoard[nx][ny] == WALL
             ) break
 
-            if (newBoard[nx][ny] != "1"
-                && newBoard[nx][ny] != "2"
-                && newBoard[nx][ny] != "3"
-                && newBoard[nx][ny] != "4"
-                && newBoard[nx][ny] != "5"
-            ) {
+            // cctv 종류라면 "#"로 바꿔주지 않음.
+            if (newBoard[nx][ny] !in CCTV_KIND_LIST) {
                 newBoard[nx][ny] = DETECTED
             }
         }

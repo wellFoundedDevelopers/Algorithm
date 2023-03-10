@@ -50,7 +50,7 @@ class 도서관 {
         while (books.isNotEmpty()) {
             if (books.size >= m) {
                 val holdingBooks = books.subList(0, m)
-                distance += holdingBooks.maxOf { it.position.absoluteValue }
+                distance += holdingBooks.first().position
                 books.removeAll(holdingBooks)
             } else {
                 distance += books.maxOf { it.position.absoluteValue }

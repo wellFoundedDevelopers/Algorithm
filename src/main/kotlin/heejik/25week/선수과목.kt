@@ -43,7 +43,7 @@ class 선수과목 {
             }
         }
 
-        semester ++
+        semester++
 
         while (learnedSubject.size != 0) {
             val tmpLearned = mutableListOf<Int>()
@@ -57,10 +57,8 @@ class 선수과목 {
             }
             learnedSubject.clear()
             tmpLearned.forEach {
-                if (prerequisiteCount[it] == 0) {
-                    subjectBySemester[it] = semester
-                    learnedSubject.add(it)
-                }
+                subjectBySemester[it] = semester
+                learnedSubject.add(it)
             }
             semester++
         }

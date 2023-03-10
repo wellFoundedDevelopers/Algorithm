@@ -81,20 +81,18 @@ class 감시 {
                 }
             }
         }
-        rec(0, setOf(), start = 0)
+        rec(0, setOf(), idx = 0)
     }
 
 
-    private fun rec(cnt: Int, monitoredPos: Set<Pos>, start: Int) {
+    private fun rec(cnt: Int, monitoredPos: Set<Pos>, idx: Int) {
         if (cnt == cctvPos.size) {
             answer = min(answer, blindSpotSize - monitoredPos.size)
             return
         }
 
-        for (i in start until cctvPos.size) {
-            for (way in CCTV.values()[room[cctvPos[i].x][cctvPos[i].y] - 1].ways) {
-                rec(cnt + 1, (monitoredPos + monitor(cctvPos[i], way)), start = i + 1)
-            }
+        for (way in CCTV.values()[room[cctvPos[idx].x][cctvPos[idx].y] - 1].ways) {
+            rec(cnt + 1, (monitoredPos + monitor(cctvPos[idx], way)), idx = idx + 1)
         }
     }
 

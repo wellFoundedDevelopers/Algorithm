@@ -2,7 +2,7 @@ package jimin.`26week`
 
 /*
 <문제>
-[절댓값 ](https://www.acmicpc.net/problem/11286)
+[절댓값 힙](https://www.acmicpc.net/problem/11286)
 
 <구현 방법>
 입력 받을 때 0이 아니면 heap에 추가해준다.

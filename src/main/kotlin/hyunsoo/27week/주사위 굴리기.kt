@@ -53,7 +53,7 @@ class `전현수_주사위_굴리기` {
                 }
 
                 DIR.NORTH.dir -> {
-                    dice = intArrayOf(dice[1], dice[5], dice[2], dice[4], dice[0], dice[4])
+                    dice = intArrayOf(dice[1], dice[5], dice[2], dice[3], dice[0], dice[4])
                 }
             }
 

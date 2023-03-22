@@ -2,7 +2,7 @@ package byeonghee.week28
 
 import java.io.StreamTokenizer
 
-class 소병희_ {
+class 소병희_미세먼지안녕 {
 
     companion object {
         val dr = arrayOf(-1, 0, 1, 0)
@@ -92,5 +92,5 @@ class 소병희_ {
 }
 
 fun main() {
-    소병희_.solve()
+    소병희_미세먼지안녕.solve()
 }

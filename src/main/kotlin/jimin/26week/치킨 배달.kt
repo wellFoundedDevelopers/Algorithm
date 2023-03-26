@@ -46,7 +46,8 @@ class `치킨 배달` {
             val newHomes = homes.toMutableMap()
             c.forEach { cc ->
                 newHomes.keys.forEach { hh ->
-                    newHomes[Pair(hh.first, hh.second)] = min(newHomes[Pair(hh.first, hh.second)]!!, abs(hh.first - cc.first) + abs(hh.second - cc.second))
+                    newHomes[Pair(hh.first, hh.second)] = min(newHomes[Pair(hh.first, hh.second)]!!,
+                            abs(hh.first - cc.first) + abs(hh.second - cc.second))
                 }
             }
             result = min(result, newHomes.values.sum())

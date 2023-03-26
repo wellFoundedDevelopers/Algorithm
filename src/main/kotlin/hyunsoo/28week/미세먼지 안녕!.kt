@@ -64,7 +64,7 @@ class `전현수_미세먼지_안녕` {
 
         repeat(t) {
 
-            val SpreadInfos = mutableListOf<SpreadInfo>()
+            val spreadInfoList = mutableListOf<SpreadInfo>()
 
             // 미세먼지 확산정보를 처리
             room.forEachIndexed { rowIndex, rowData ->
@@ -76,7 +76,7 @@ class `전현수_미세먼지_안녕` {
 
                         room[rowIndex][columnIndex] -= spreadSize * spreadList.size
 
-                        SpreadInfos.add(
+                        spreadInfoList.add(
                             SpreadInfo(spreadSize, spreadList)
                         )
 
@@ -85,7 +85,7 @@ class `전현수_미세먼지_안녕` {
             }
 
             // 미세먼지 확산 정보를 기반으로 확산 작업 진행
-            SpreadInfos.forEach { spreadInfo ->
+            spreadInfoList.forEach { spreadInfo ->
                 spreadInfo.positionList.forEach { pos ->
                     room[pos.x][pos.y] += spreadInfo.size
                 }

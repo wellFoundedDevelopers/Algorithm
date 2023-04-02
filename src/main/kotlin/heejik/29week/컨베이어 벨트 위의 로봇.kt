@@ -25,10 +25,6 @@ class `컨베이어 벨트 위의 로봇` {
 
             position = movePosition
         }
-
-        override fun toString(): String {
-            return this.position.toString()
-        }
     }
 
     fun solve() {

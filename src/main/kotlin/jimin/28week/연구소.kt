@@ -67,7 +67,7 @@ class 연구소 {
             for (i in 0 until 4) {
                 if (now.first + dx[i] in 0 until rooms.size && now.second + dy[i] in 0 until rooms.first().size) {
                     if (rooms[now.first + dx[i]][now.second + dy[i]] == EMPTY) {
-                        queue.add(Pair(now.first + dx[i], now.second + dy[i]))
+                        queue.addFirst(Pair(now.first + dx[i], now.second + dy[i]))
                         rooms[now.first + dx[i]][now.second + dy[i]] = VISITED
                     }
                 }

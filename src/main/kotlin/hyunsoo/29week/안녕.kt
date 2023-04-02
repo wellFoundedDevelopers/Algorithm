@@ -34,7 +34,7 @@ class `전현수_안녕` {
         // i는 사람의 인덱스, j는 스테미나 인덱스
         for (i in 1..peopleCnt) {
             for (j in 1 until 100) {
-                // 이 사람과 만나는 경우, 체력이 여유로다면
+                // 이 사람과 만나는 경우, 체력이 여유롭다면
                 if (loseHealth[i] <= j) {
                     dp[i][j] = max(
                         dp[i - 1][j],

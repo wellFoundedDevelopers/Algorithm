@@ -28,10 +28,10 @@ class 빙산 {
 
         while (true) {
             age(n, m)
-            if (getMountainNum(n, m) >= 2) {
+            val num = getMountainNum(n, m)
+            if (num >= 2) {
                 break
-            }
-            if (mountains.sumOf{ it.sumOf{ it } } == 0) {
+            } else if (num == 0) {
                 result = 0
                 break
             }

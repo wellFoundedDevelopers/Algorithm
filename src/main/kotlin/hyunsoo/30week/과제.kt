@@ -33,16 +33,15 @@ class `전현수_과제` {
 
             val curDay = n - index
 
-            val target = assignmentList.filter {
+            assignmentList.filter {
                 curDay <= it.remain
             }.maxByOrNull {
                 it.score
-            }
-
-            target?.let {
+            }?.let {
                 score += it.score
                 assignmentList.remove(it)
             }
+
         }
 
         println(score)

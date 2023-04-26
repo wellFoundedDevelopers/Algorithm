@@ -34,5 +34,5 @@ class 소병희_집합 {
 }
 
 fun main() {
-    소병희_.solve()
+    소병희_집합.solve()
 }

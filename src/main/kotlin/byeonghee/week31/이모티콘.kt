@@ -1,6 +1,6 @@
 package byeonghee.week31
 
-class 소병희_ {
+class 소병희_이모티콘 {
 
     companion object {
         fun solve() {
@@ -18,5 +18,5 @@ class 소병희_ {
 }
 
 fun main() {
-    소병희_.solve()
+    소병희_이모티콘.solve()
 }

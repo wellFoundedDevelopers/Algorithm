@@ -16,7 +16,7 @@ stringBuilder를 애용하자..
 import java.lang.Math.abs
 import java.lang.Math.min
 
-class `팰린드롬?` {
+class `팰린드롬` {
     fun solve() {
         val n = readln().toInt()
         val boards = readln().split(" ").map { it.toInt() }
@@ -46,5 +46,5 @@ class `팰린드롬?` {
 }
 
 fun main() {
-    `팰린드롬?`().solve()
+    `팰린드롬`().solve()
 }

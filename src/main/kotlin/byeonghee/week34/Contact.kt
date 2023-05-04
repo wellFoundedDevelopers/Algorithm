@@ -2,7 +2,7 @@ package byeonghee.week34
 
 import java.io.*
 
-class 소병희_ {
+class 소병희_Contact {
 
     companion object {
         fun solve(): Unit = with(BufferedReader(InputStreamReader(System.`in`))) {
@@ -24,5 +24,5 @@ class 소병희_ {
 }
 
 fun main() {
-    소병희_.solve()
+    소병희_Contact.solve()
 }

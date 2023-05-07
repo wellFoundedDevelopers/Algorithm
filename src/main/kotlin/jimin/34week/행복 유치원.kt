@@ -19,7 +19,7 @@ class `행복 유치원` {
     fun solve() {
         val (n, k) = readln().split(" ").map { it.toInt() }
         val students = readln().split(" ").map { it.toInt() }
-        val pq = PriorityQueue(Comparator<Pair<Int, Int>> { a, b -> if (a.first != b.first) b.first - a.first else b.second - a.second })
+        val pq = PriorityQueue(Comparator<Pair<Int, Int>> { a, b -> if (a.first != b.first) b.first - a.first else a.second - b.second })
 
         for (i in 0 until n - 1) {
             pq.add(Pair(students[i + 1] - students[i], i))

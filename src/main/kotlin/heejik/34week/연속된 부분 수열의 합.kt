@@ -17,19 +17,10 @@ class `연속된 부분 수열의 합` {
         val answer = Answer(0, Int.MAX_VALUE)
 
         while (true) {
-            println("start: $start")
-            println("end: $end")
-            println("nowSum: $nowSum")
-            println()
             if (nowSum == k) {
                 if (end - start < answer.end - answer.start) {
                     answer.start = start
                     answer.end = end
-                } else if (end - start == answer.end - answer.start) {
-                    if (start < answer.start) {
-                        answer.start = start
-                        answer.end = end
-                    }
                 }
             }
 

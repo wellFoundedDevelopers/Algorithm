@@ -33,7 +33,7 @@ class `전현수_지름길` {
 
         val dp = IntArray(10001) { it }
 
-        for (end in 1..10000) {
+        for (end in 1..highwayLength) {
             dp[end] = dp[end - 1] + 1
             shortcutInfoList.forEach {
                 if (end == it.end) dp[end] =

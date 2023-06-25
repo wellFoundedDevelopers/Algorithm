@@ -11,8 +11,6 @@ package hyunsoo.`39week`
  *
  */
 
-
-
 class `전현수_줄세우기` {
 
     fun solution() {

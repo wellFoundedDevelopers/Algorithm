@@ -2,7 +2,7 @@ package jimin.`36week`
 
 /*
 <문제>
-[인구이동](https://www.acmicpc.net/problem/16234)
+
 
 <구현 방법>
 매 시간 spentTime으로 각 폭탄의 남은 시간을 줄여주고,

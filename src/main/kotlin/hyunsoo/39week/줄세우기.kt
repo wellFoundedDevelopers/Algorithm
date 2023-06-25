@@ -38,7 +38,9 @@ class `전현수_줄세우기` {
                         it < curNum
                     }.map {
                         dp[children.indexOf(it)]
-                    }.maxOf { dp.indexOf(it) }
+                    }.maxOf {
+                        dp.indexOf(it)
+                    }
 
             dp[i] = dp[lisIndexFromSmallNumsThanCurNum] + 1
         }

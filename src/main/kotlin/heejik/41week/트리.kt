@@ -1,4 +1,4 @@
-package heejik.`40week`
+package heejik.`41week`
 
 import kotlin.properties.Delegates
 
@@ -60,3 +60,6 @@ class 트리 {
 fun main() {
     트리().solve()
 }
+
+
+object DError : Error()

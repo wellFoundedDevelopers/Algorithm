@@ -1,6 +1,5 @@
 package heejik.`45week`
 
-import kotlin.math.absoluteValue
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.properties.Delegates
@@ -8,7 +7,6 @@ import kotlin.properties.Delegates
 class `연산자 끼워넣기` {
 
     var n by Delegates.notNull<Int>()
-    var asd = 0
     lateinit var numbers: List<Int>
     lateinit var operators: List<Int>
     var maxAnswer = Int.MIN_VALUE

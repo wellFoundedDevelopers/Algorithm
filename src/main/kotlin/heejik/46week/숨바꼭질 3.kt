@@ -36,7 +36,7 @@ class `숨바꼭질 3` {
             var multiNumber = number * 2
             while (multiNumber <= 100000) {
                 if (visited[multiNumber] < time) break
-                queue.addFirst(Pair(multiNumber,time))
+                queue.addFirst(multiNumber to time)
                 visited[multiNumber] = time
                 multiNumber *= 2
             }

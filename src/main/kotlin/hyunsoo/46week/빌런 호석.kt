@@ -13,7 +13,7 @@ package hyunsoo.`46week`
 class `전현수_빌런_호석` {
 
     private val nums = listOf(
-        listOf(OFF, OFF, OFF, OFF, OFF, OFF, ON),
+        listOf(ON, ON, ON, ON, ON, ON, OFF),
         listOf(OFF, ON, ON, OFF, OFF, OFF, OFF),
         listOf(ON, ON, OFF, ON, ON, OFF, ON),
         listOf(ON, ON, ON, ON, OFF, OFF, ON),

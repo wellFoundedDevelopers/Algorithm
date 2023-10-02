@@ -3,7 +3,7 @@ package heejik.`46week`
 import kotlin.math.min
 import kotlin.properties.Delegates
 
-class 숨바꼭질 {
+class `숨바꼭질 3` {
 
 
     val visited = MutableList(100001) { Int.MAX_VALUE }
@@ -36,7 +36,7 @@ class 숨바꼭질 {
             var multiNumber = number * 2
             while (multiNumber <= 100000) {
                 if (visited[multiNumber] < time) break
-                queue.addFirst(multiNumber to time)
+                queue.addFirst(Pair(multiNumber,time))
                 visited[multiNumber] = time
                 multiNumber *= 2
             }
@@ -57,5 +57,5 @@ class 숨바꼭질 {
 }
 
 fun main() {
-    숨바꼭질().solve()
+    `숨바꼭질 3`().solve()
 }

@@ -5,7 +5,7 @@ import java.util.*
 class 소병희_백도어 {
 
     companion object {
-        const val INF = 99_999_999_999
+        const val INF = Long.MAX_VALUE
 
         fun solve()= with(System.`in`.bufferedReader()) {
             val (n, m) = readLine().split(" ").map { it.toInt() }
@@ -19,37 +19,32 @@ class 소병희_백도어 {
             }
 
             val visited = LongArray(n) { INF }
-            val q = PriorityQueue<Pair<Int, Long>> { a, b -> (if (a.second - b.second > 0) 1 else -1) }
+            val q = PriorityQueue<Pair<Int, Long>> { a, b -> (a.second - b.second).toInt() }
             val GOAL = n-1
-            var ans = -1L
 
-            visited[0] = 0
-            for((v, e) in adj[0]) {
-                if (hideable[v]) {
-                    q.add(v to e)
-                    visited[v] = e
-                }
-            }
+            visited[0] = 0L
+            q.add(0 to 0L)
 
             while(q.isNotEmpty()) {
                 val (pos, curDist) = q.poll()
 
-                if (pos == GOAL) {
-                    ans = curDist
-                    break
-                }
-
                 if (visited[pos] < curDist) continue
+                visited[pos] = curDist
 
                 for((v, e) in adj[pos]) {
-                    if ((v == GOAL || hideable[v]) && curDist + e < visited[v]) {
-                        q.add(v to curDist + e)
+                    if (v != GOAL && hideable[v].not()) continue
+                    if (curDist + e < visited[v]) {
                         visited[v] = curDist + e
+                        q.add(v to visited[v])
                     }
                 }
             }
 
-            println(ans)
+            println(if (visited[GOAL] == INF) -1 else visited[GOAL])
         }
     }
+}
+
+fun main() {
+    소병희_백도어.solve()
 }

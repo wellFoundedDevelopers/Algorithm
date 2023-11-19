@@ -13,8 +13,8 @@ class 소병희_벼락치기 {
             val dp = IntArray(T + 1)
 
             for(i in 0 until n) {
-                for(j in ch[i].first .. T) {
-                    dp[j] = maxOf(dp[j-1], dp[j-ch[i].first] + ch[i].second)
+                for(j in T downTo ch[i].first) {
+                    dp[j] = maxOf(dp[j], dp[j-ch[i].first] + ch[i].second)
                 }
             }
 

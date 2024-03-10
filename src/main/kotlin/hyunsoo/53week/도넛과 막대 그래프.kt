@@ -14,11 +14,11 @@ class `전현수_도넛과_막대_그래프` {
 
     fun solution(edges: Array<IntArray>): IntArray {
 
-        val outNodesFromHere = Array(edges.size + 1) {
+        val outNodesFromHere = Array(1000001) {
             mutableListOf<Int>()
         }
 
-        val inNodesToHere = Array(edges.size + 1) {
+        val inNodesToHere = Array(1000001) {
             mutableListOf<Int>()
         }
 
@@ -32,7 +32,7 @@ class `전현수_도넛과_막대_그래프` {
             inNodesToHere[to].add(from)
         }
 
-        for (nodeIndex in 1..edges.size) {
+        for (nodeIndex in 1..1000000) {
 
             val outCnt = outNodesFromHere[nodeIndex].size
             val inCnt = inNodesToHere[nodeIndex].size

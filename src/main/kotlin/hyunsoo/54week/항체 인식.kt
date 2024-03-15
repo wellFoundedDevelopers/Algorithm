@@ -30,9 +30,6 @@ class `전현수_항체_인식` {
 
     fun solution() {
 
-        // 두 좌표의 숫자가 다른 경우의 수
-        var numDifferentCnt = 0
-
         val (n, m) = readln().split(" ").map { it.toInt() }
 
         repeat(n) {
@@ -52,12 +49,6 @@ class `전현수_항체_인식` {
                 val curNumForExpected = expected[i][j]
 
                 if (curNumForOrigin != curNumForExpected) {
-                    numDifferentCnt++
-
-                    if (2 <= numDifferentCnt) {
-                        println("NO")
-                        exitProcess(0)
-                    }
 
                     val visited = Array(n) {
                         BooleanArray(m)
@@ -106,9 +97,6 @@ class `전현수_항체_인식` {
 
     }
 
-    companion object {
-        const val CHECKED = -1
-    }
 }
 
 fun main() {

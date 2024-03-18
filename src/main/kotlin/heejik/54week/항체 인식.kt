@@ -68,10 +68,7 @@ class `항체 인식` {
         }
 
         val answer: () -> Unit =
-            if (visited.size == differencePoses.size
-                && visited.containsAll(differencePoses)
-                && differencePoses.containsAll(visited)
-            ) {
+            if (visited.size == differencePoses.size) {
                 { println("YES") }
             } else {
                 { println("NO") }

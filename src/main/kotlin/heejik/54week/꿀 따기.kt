@@ -38,6 +38,7 @@ class `꿀 따기` {
 }
 
 
+
 fun main() {
     `꿀 따기`().solve()
 }

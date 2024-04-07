@@ -18,6 +18,7 @@ class `전현수_귤_고르기` {
         var targetCnt = k
         var answer: Int = 0
 
+        // getCountMap
         tangerine.forEach {
             val pre = counter.getOrDefault(it, 0)
             counter[it] = pre + 1

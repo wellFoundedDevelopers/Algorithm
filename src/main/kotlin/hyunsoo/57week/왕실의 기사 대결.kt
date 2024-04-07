@@ -130,7 +130,6 @@ class `전현수_왕실의_기사_대결` {
                 val curNum = knightMap[i][j]
                 if (visitedKnightNum.contains(curNum)) continue
                 if (curNum != EMPTY) {
-                    visitedKnightNum.add(curNum)
                     onKnightDetected(curNum)
                     if (!canMove(curNum, dir, knightMap, visitedKnightNum) {
                             onKnightDetected(it)

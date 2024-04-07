@@ -2,49 +2,54 @@ package byeonghee.week56
 
 class 소병희_톱니바퀴2 {
     companion object {
-        const val RIGHT = 2
-        const val LEFT = 6
-
-        val bm = 1 shl 8
-
+        const val R = 2
+        const val L = 6
+        const val MOD = 8
         fun solve() = with(System.`in`.bufferedReader()) {
             val t = readLine().toInt()
-            val wheels = IntArray(t) { readLine().reversed().toInt(2) }
+            val wheels = Array(t) { IntArray(8) }
+            val dirs = IntArray(t)
+
+            repeat(t) { i ->
+                readLine().forEachIndexed { j, c -> wheels[i][j] = c.digitToInt() }
+            }
+
             val k = readLine().toInt()
-            val q = ArrayDeque<IntArray>()
-
-            fun getBit(i: Int, x: Int) : Int {
-                return (wheels[i] shr x) % 2
-            }
-
-            fun rotate(i: Int, d: Int) {
-                if (d == -1) wheels[i] = getBit(i, 7) shl 7 + wheels[i] shr 1
-                else wheels[i] = getBit(i, 7) + (wheels[i] shl 1) % bm
-            }
-
             repeat(k) {
-                val (_i, _d) = readLine().split(" ").map { it.toInt() }
+                val (i, d) = readLine().split(" ").map { it.toInt() }
+                var ld = (MOD + d) % MOD
+                var rd = (MOD + d) % MOD
+                var stop = false
 
-                if (_i > 1) q.add(intArrayOf(_i-2, _d, RIGHT, getBit(_i-1, LEFT)))
-                if (_i < t) q.add(intArrayOf(_i, _d, LEFT, getBit(_i-1, RIGHT)))
-
-                rotate(_i-1, _d)
-
-                while(q.isNotEmpty()) {
-                    val (i, d, from, cog) = q.removeFirst()
-
-                    if (from != RIGHT && getBit(i, LEFT) != cog) {
-                        if (i < t-1) q.add(intArrayOf(i+1, -1 * d, from, getBit(i, RIGHT)))
-                        rotate(i, d * -1)
+                for(l in i-2 downTo 0) {
+                    if (wheels[l][(R + 8 - dirs[l]) % MOD] == wheels[l+1][(L + 8 - dirs[l+1]) % MOD]) {
+                        stop = true
                     }
-                    if (from != LEFT && getBit(i, RIGHT) != cog) {
-                        if (i > 0) q.add(intArrayOf(i-1, -1 * d, from, getBit(i, LEFT)))
-                        rotate(i, d * -1)
+                    dirs[l+1] = (dirs[l+1] + ld) % MOD
+                    ld = (MOD - ld) % MOD
+                    if (stop) break
+                    if (l == 0) dirs[l] = (dirs[l] + ld) % MOD
+                }
+
+                stop = false
+                if (i in 2 until t) dirs[i-1] = (dirs[i-1] - rd + MOD) % MOD
+                for(r in i until t) {
+                    if (wheels[r-1][(R + 8 -  dirs[r-1]) % MOD] == wheels[r][(L + 8 - dirs[r]) % MOD]) {
+                        stop = true
                     }
+                    dirs[r-1] = (dirs[r-1] + rd) % MOD
+                    rd = (MOD - rd) % MOD
+                    if (stop) break
+                    if (r == t-1) dirs[r] = (dirs[r] + rd) % MOD
                 }
             }
 
-            println(wheels.count { it % 2 == 1 })
+            var answer = 0
+            for(i in 0 until t) {
+                if (wheels[i][(8 - dirs[i]) % MOD] == 1) answer++
+            }
+
+            println(answer)
         }
     }
 }

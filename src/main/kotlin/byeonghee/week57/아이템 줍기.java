@@ -1,91 +1,69 @@
 package byeonghee.week57;
 
-class GETITEM {
+class BYEONGHEE_GETITEM {
 
     static int[] dr = { -1, 0, 1, 0 };
     static int[] dc = { 0, 1, 0, -1 };
 
     static int[][] map = new int[52][52];
     static int[][] visited = new int[52][52];
+    static int[][] rectangles;
 
     static int recId = 1;
     static int answer = 0;
     static int around = 0;
     static int r = 0;
     static int c = 0;
-    static int d = 0;
-
     static int x = 0;
     static int xbm = 0;
+    static int d = 0;
     static int nr = 0;
     static int nc = 0;
     static int nd = 0;
 
     public static int solution(int[][] rectangle, int cc, int rr, int itemC, int itemR) {
-        for(int[] rect : rectangle) {
+        rectangles = rectangle;
+
+        for(int[] rect : rectangles) {
             for(int i = rect[1]; i <= rect[3]; i++) {
-                for(int j = rect[0]; j <= rect[2]; j++) {
-                    map[i][j] = 1 << recId;  //110
-                }
+                map[i][rect[0]] += 1 << recId;
+                map[i][rect[2]] += 1 << recId;
+            }
+            for(int j = rect[0]+1; j < rect[2]; j++) {
+                map[rect[1]][j] += 1 << recId;
+                map[rect[3]][j] += 1 << recId;
             }
             recId++;
         }
 
         r = rr; c = cc; visited[r][c]++;
-        x = getNextRecId(r, c, 0); xbm = 1 << x;
         while(visited[r][c] < 2) {
             nr = r + dr[d]; nc = c + dc[d];
 
-            if ((map[nr][nc] & map[r][c]) == 0 || !isOuter(nr, nc)) {
+            if ((map[nr][nc] & map[r][c]) == 0 || isInner((r + nr) / 2f, (c + nc) / 2f)) {
                 nd = (d + 1) % 4;
-                d = isOuter(r + dr[nd], c + dc[nd]) ? nd : (nd + 2) % 4;
-                nr = r + dr[d]; nc = c + dc[d];
+                if ((map[r + dr[nd]][c + dc[nd]] & map[r][c]) == 0 || isInner(r + 0.5f * dr[nd], c + 0.5f * dc[nd])) {
+                    nd = (nd + 2) % 4;
+                }
+                d = nd; nr = r + dr[d]; nc = c + dc[d];
             }
 
             r = nr; c = nc;
             visited[r][c]++;
             around++;
             if(r == itemR && c == itemC) answer = around;
-
-            if (map[r][c] - xbm > 0) {
-                x = getNextRecId(r, c, x);
-                xbm = 1 << x;
-            }
         }
 
         return answer < (around - answer) ? answer : around - answer;
     }
 
-    public static boolean isOuter(int r, int c) {
-        if (map[r][c] == 0) return false;
-
-        int outer = 0;
-        int nr = r;
-        int nc = c;
-
-        for(int d = 0; d < 4; d++) {
-            if (nr < 0 || nc < 0 || nr > 51 || nc > 51) return false;
-            nr = r + dr[d];
-            nc = c + dc[d];
-            if((map[nr][nc] & map[r][c]) == 0) outer++;
-        }
-
-        return outer > 0 && outer < 4;
-    }
-
-    public static int getNextRecId(int r, int c, int v) {
-        int ret = 1;
-        int bm = 2;
-        while((map[r][c] & bm) == 0) {
-            bm <<= 1;
-            ret++;
-            if (ret == v) {
-                bm <<= 1;
-                ret++;
+    public static boolean isInner(float midR, float midC) {
+        for(int[] rec : rectangles) {
+            if (midR > rec[1] && midR < rec[3] && midC > rec[0] && midC < rec[2]) {
+                return true;
             }
         }
-
-        return ret;
+        return false;
     }
 
     public static void main(String[] args) {

@@ -1,7 +1,9 @@
-val dr = intArrayOf(0, 1, 0, -1)
-val dc = intArrayOf(1, 0, -1, 0)
+package byeonghee.week61
 
 class 소병희_무인도여행 {
+    val dr = intArrayOf(0, 1, 0, -1)
+    val dc = intArrayOf(1, 0, -1, 0)
+
     fun solution(maps: Array<String>): IntArray {
         val n = maps.size
         val m = maps[0].length

@@ -14,11 +14,6 @@ import java.util.PriorityQueue
  */
 class `전현수_싸지방에_간_준하` {
 
-    private sealed class SeatState {
-        data class Available(val index: Int) : SeatState()
-        object AllOccupied : SeatState()
-    }
-
     private data class UseInfo(val start: Int, val end: Int)
     private data class ComInfo(val num: Int, val cnt: Int)
     private data class UsingInfo(val num: Int, val end: Int, val cnt: Int)

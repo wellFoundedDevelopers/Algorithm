@@ -22,7 +22,6 @@ class `전현수_괄호_희전하기` {
 
         var start = 0
         repeat(s.length) {
-            println(target.slice(start until start + s.length))
             if (target.slice(start until start + s.length).isAlright()) answer++
             start++
         }
